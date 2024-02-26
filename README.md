@@ -1,6 +1,6 @@
-# intagram_ui_teste
+# instagram_ui_teste
 
-A new Flutter project.
+I'm following step by step to create an Instagram UI Design clone by Celson Paixão
 
 ## Getting Started
 
