@@ -1,8 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:intagram_ui_teste/models/post_model.dart';
 import 'package:intagram_ui_teste/models/story_model.dart';
+import 'package:intagram_ui_teste/screens/dashbord/widgets/posts_widget.dart';
 import 'package:intagram_ui_teste/screens/dashbord/widgets/storys_widget.dart';
+import 'package:intagram_ui_teste/services/post_service.dart';
 import 'package:intagram_ui_teste/services/story_service.dart';
 
 class DashbordScreen extends StatefulWidget {
@@ -14,14 +17,13 @@ class DashbordScreen extends StatefulWidget {
 
 class _DashbordState extends State<DashbordScreen> {
   List<StoryModel> usersimages = [];
-  //List<PostModel> posts = [];
+  List<PostModel> posts = [];
 
   Future<void> loadingAllData() async {
     try {
       usersimages = await StoryService.getAllStory();
+      posts = await PostService.getAllPosts();
       setState(() {});
-      
-      //posts = PostController().showPost();
     } catch (e) {
       // ignore: use_build_context_synchronously
       ScaffoldMessenger.of(context).showSnackBar(
@@ -66,7 +68,7 @@ class _DashbordState extends State<DashbordScreen> {
                       Row(
                         children: [
                           SvgPicture.asset('assets/vectores/IGTV.svg'),
-                          SizedBox(
+                          const SizedBox(
                             width: 10,
                           ),
                           SvgPicture.asset('assets/vectores/Messanger.svg'),
@@ -77,7 +79,7 @@ class _DashbordState extends State<DashbordScreen> {
                 ),
               ])),
           StoryWidget(usersimages: usersimages),
-          // Posts(posts: posts)
+          PostWidget(posts: posts)
         ],
       ),
       bottomNavigationBar: BottomNavigationBar(
