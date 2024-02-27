@@ -23,7 +23,7 @@ class StoryService {
         ),
         StoryModel(
         id: 4,
-        image: "https://targeting.ao/wp-content/uploads/2023/09/transferir-1.jpg", 
+        image: "https://powerlist100.bantumen.com/wp-content/uploads/2021/12/Gilmario-Vemba-1.jpg", 
         name: "Gilmario Vemba"
         ),
 
